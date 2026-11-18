@@ -23,5 +23,5 @@ Ouvre le lien ci-dessus dans ton navigateur. Pour retrouver le jeu facilement, u
 
 ## 📄 Licence et crédits
 
-- Licence : voir le fichier [LICENSE](LICENSE) du dépôt.
+- Licence : **CC BY-NC 4.0** (voir [LICENSE](LICENSE)) : partage et adaptation autorisés avec mention de l’auteur, sans usage commercial.
 - Conception : **Tom Rougeaud** — réalisé avec l’aide de Claude (Anthropic).

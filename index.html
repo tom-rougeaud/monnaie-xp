@@ -937,8 +937,7 @@ html,body{overflow-x:hidden;max-width:100%;}
     <button id="install-btn" onclick="installApp()" style="display:none;padding:9px 20px;min-height:48px;background:linear-gradient(135deg,#1a3a2a,#3fb950);border:1px solid rgba(63,185,80,.5)!important;color:#fff;border-radius:9px;font-weight:900;font-size:.82rem;cursor:pointer;font-family:Nunito,sans-serif;letter-spacing:.5px;width:100%;max-width:320px;">📲 INSTALLER L'APPLICATION</button>
   </div>
   <div class="prof-email-block">
-    <p>Vous êtes enseignant(e) et souhaitez le mot de passe du Mode Prof ?<br>Envoyez un e-mail depuis votre adresse académique à <strong style="color:var(--blue)">tom.rougeaud.education@gmail.com</strong></p>
-    <button class="email-btn" onclick="openMailClient()">✉️ ENVOYER UN MESSAGE</button>
+    <p>Vous êtes enseignant(e) et souhaitez le mot de passe du Mode Prof ?<br>Contactez-moi via le lien LinkedIn ci-dessous.</p>
   </div>
   <a class="linkedin-link" href="https://www.linkedin.com/in/tomrougeaud/" target="_blank" rel="noopener">//Tom Rougeaud</a>
 </div>
@@ -2327,41 +2326,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   document.addEventListener("touchstart",()=>{},{passive:true});
 });
 
-/* ── EMAIL PROF (bypass Cloudflare / filtres mailto) ── */
-function openMailClient(){
-  const to='tom.rougeaud.education'+'@gmail.com';
-  const subj=encodeURIComponent('Demande de mot de passe PROF | Monnaie XP');
-  const body=encodeURIComponent(
-    'Bonjour Tom,\n\n' +
-    'Je suis enseignant(e) et je souhaite obtenir le mot de passe du Mode Prof '+
-    'de l\'application TR.IA - MONNAIE XP (JEU).\n\n' +
-    'Mon adresse académique : \n' +
-    'Mon établissement : \n' +
-    'Niveau(x) concerné(s) : \n\n' +
-    'Cordialement.'
-  );
-  const href='mailto:'+to+'?subject='+subj+'&body='+body;
-  try{
-    const a=document.createElement('a');a.href=href;a.style.display='none';
-    document.body.appendChild(a);a.click();
-    setTimeout(()=>{try{document.body.removeChild(a);}catch(e){}},500);
-  }catch(e){}
-  setTimeout(()=>{try{window.location.href=href;}catch(e){}},300);
-  notif('📧 Ouverture du client mail…','ok');
-}
-/* DUMMY to replace old function */
-function _openMailClientOLD(){
-  const to='tom.rougeaud.education'+'@gmail.com';
-  const subj=encodeURIComponent('Demande de mot de passe PROF | Monnaie XP');
-  const body=encodeURIComponent('Bonjour,\n\nJe suis enseignant(e) et souhaite obtenir le mot de passe du Mode Prof de l\'application Monnaie XP.\n\nMon adresse académique : \nÉtablissement : \n\nCordialement.');
-  const link='mailto:'+to+'?subject='+subj+'&body='+body;
-  /* Méthode 1 : ouverture directe */
-  const a=document.createElement('a');a.href=link;a.style.display='none';document.body.appendChild(a);
-  try{a.click();}catch(e){}
-  document.body.removeChild(a);
-  /* Méthode 2 (fallback iOS / Android) */
-  setTimeout(()=>{window.open(link,'_self');},150);
-}
+/* (envoi du mot de passe Prof par e-mail retiré : contact via LinkedIn) */
 
 /* ── RÈGLES DES JEUX ── */
 const REGLES=[
